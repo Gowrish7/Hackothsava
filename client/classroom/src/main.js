@@ -5,7 +5,8 @@ import * as lilGui from 'lil-gui'
 import gsap from 'gsap'
 //Canvas
 const canvas = document.querySelector('canvas');
-
+const main = document.querySelector('.select');
+const formContainer = document.querySelector('.form-container');
 //Scene
 const scene = new THREE.Scene();
 //Light
@@ -74,6 +75,10 @@ const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true;
 
 
+
+
+
+
 //gltf loader
 const gltfLoader = new GLTFLoader();
 gltfLoader.load("./models/C/Classroom1.gltf", (gltf) => {
@@ -90,7 +95,8 @@ gltfLoader.load("./models/C/Classroom1.gltf", (gltf) => {
     function lookAtPosition(x, y, z) {
         camera.lookAt( x, y, z );
     }
-
+    cameraMovement(-10.29, 1.966, -7.66);
+    cameraRotation(-2.89, -0.91, -2.94);
     window.addEventListener('mouseup', async() => {
         // camera.position.x= 1.49;
         // camera.position.y= 2.04;
@@ -105,28 +111,33 @@ gltfLoader.load("./models/C/Classroom1.gltf", (gltf) => {
 
 
 
-        switch(position) {
-            case 0:
-                cameraMovement(-10.29, 1.966, -7.66);
-                cameraRotation(-2.89, -0.91, -2.94);
-                // lookAtPosition(400, 400, 0)
-                position = 1;
-                break;
-            case 1:
+        // switch(position) {
+        //     case 0:
+        //         cameraMovement(-10.29, 1.966, -7.66);
+        //         cameraRotation(-2.89, -0.91, -2.94);
+        //         // lookAtPosition(400, 400, 0)
+        //         position = 1;
+        //         break;
+        //     case 1:
                 cameraMovement(1.49, 2.04, -7.55);
                 cameraRotation(-2.68, 1.05, 2.74);
+                main.style.display = "none"
+                // formContainer.style.display = "block"
                 // lookAtPosition(400, 400, 0)
-                // position = 0;
+                position = 1;
                 // console.log(camera.rotation)
-                break;
+                // break;
                 // default: 
                 //     cameraMovement(1.49, 2.04, -7.55);
                 //     cameraRotation(-2.68, 1.05, 2.74);
                 //     position = 0;
-        }
+        // }
     })
 
-    
+    // window.addEventListener('click', () => {
+    //     if(position == 1)
+
+    // })
 
 
     //GUI configurator
@@ -153,6 +164,30 @@ gui
 .step(0.001)
 .name('Model Y-Axis')
 })
+
+
+
+//raycaster and 2D Vector
+const pointer = new THREE.Vector2()
+const raycaster = new THREE.Raycaster()
+const onMouseMove = (event) => {
+    // console.log(event.x)
+    // pointer.x = event.x
+    pointer.x = (event.x / window.innerWidth) * 2 - 1;
+    pointer.y = -(event.y / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(pointer, camera); 
+    const intersects=raycaster.intersectObjects (scene.children);
+    for (let i = 0; i < intersects.length; i++) { 
+        console.log(intersects);
+        intersects[i].object.material.color.set(0x000000)
+    }
+}
+window.addEventListener('click', (e) => {
+    if(position==1)
+        onMouseMove(e);
+})
+
+
 
 const animate = () => {
     controls.saveState();

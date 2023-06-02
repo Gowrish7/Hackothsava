@@ -11,6 +11,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.1.3",
+    "ethereal": "^3.5.5",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "firebase": "^9.22.1",
@@ -19,6 +20,7 @@
     "nodemailer": "^6.9.3",
     "nodemon": "^2.0.22",
     "otp-generator": "^4.0.1",
-    "transporter": "^0.0.1"
+    "transporter": "^0.0.1",
+    "twilio": "^4.11.2"
   }
 }

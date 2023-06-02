@@ -3,3 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+    min-height: 100dvh;
+}
+header,
+body,
+main {
+    position: relative;
+}
+canvas {
+    position: absolute;
+    top: 0;
+}
+form > div {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.form-container {
+    display: none;
+    max-width: 35%;
+    margin-inline: auto;
+}

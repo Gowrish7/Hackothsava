@@ -1,0 +1,9 @@
+.option{
+    width:200px;
+    height: 500px;
+    display:flex;
+    flex-direction: column;
+    justify-items: space-evenly;
+    justify-content: space-evenly;
+
+}

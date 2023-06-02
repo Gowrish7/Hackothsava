@@ -92,3 +92,43 @@ input {
   float: left;
   margin: 10px 0 0 20px;
 }
+
+
+  /* otp generate code */
+  .otp-field {
+    display: flex;
+    padding: 1px;
+    
+  }
+  
+  .otp-field input {
+    width: 24px;
+    font-size: 32px;
+    padding: 0.5px;
+    text-align: center;
+    border-radius: 8px;
+    margin: 5px;
+    border: 1px solid #55525c;
+    background: #21232d;
+    font-weight: bold;
+    color: #fff;
+    outline: none;
+    transition: all 0.1s;
+    padding: 0 2.5px;
+  }
+  
+  .otp-field input:focus {
+    border: 2px solid #a527ff;
+    box-shadow: 0 0 2px 2px #a527ff6a;
+  }
+  
+  .disabled {
+    opacity: 0.5;
+  }
+  
+  .space {
+    margin-right: 1rem !important;
+  }
+
+
+ 

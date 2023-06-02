@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="src/style.css">
 		<link rel="stylesheet" href="src/style2.css">
 	</head>
+
 	<body>
 		<canvas class="canvas"></canvas>
 		<header>
@@ -43,15 +44,22 @@
             </div>
 			<div class="form-container">
 				<form action="">
-					<div>
-						<label for="name">Name</label>
-						<input id="name" class="name" type="text">
-					</div>
-					<div>
-						<label for="phonenumber">Phone Number</label>
-						<input id="phonenumber" class="phonenumber" type="number">
-					</div>
-				</form>
+
+          <form>
+            <fieldset class="account-info">
+              <label>
+                Username
+                <input type="text" name="username">
+              </label>
+              <label>
+                Phone Number 
+                <input type="number" name="Phone-Number">
+              </label>
+            </fieldset>
+            <fieldset class="account-action">
+              <input class="btn" type="submit" name="submit" value="Login">
+            </fieldset>
+          </form>
 			</div>
         </main>
 		<script type="module" src="src/main.js"></script>

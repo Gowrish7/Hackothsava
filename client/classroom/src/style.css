@@ -137,3 +137,18 @@ input {
   }
 
 
+
+  footer{ 
+    position: absolute;
+    z-index: 999;
+    max-width: fit-content;
+    right: 0;
+    bottom: 0;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 15px;
+  }
+  footer h3{ 
+    text-align: center;
+    max-width: fit-content;
+  }

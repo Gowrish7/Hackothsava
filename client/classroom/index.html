@@ -45,29 +45,25 @@
                 <button class="button-17" role="button">Select your Seats</button>
             </div>
 			<div class="form-container">
-				<form action="https://localhost:3000/authenticate" method="post">
-            <fieldset class="account-info">
-              <label>
-                Username
+				<form>
+            <!-- <fieldset class="account-info"> -->
+              <label for="name">
+                Username</label>
                 <input type="text" name="name" id="name" class="name">
-              </label>
-              <label>
-                Phone Number 
-                <input type="number" name="Phone-Number" id="phonenumber" class="phonenumber" maxlength="10" minlength="10">
-              </label>
-              <label style="display: none">
-                seatId
+              <label for="phonenumber">
+                Phone Number </label>
+                <input type="number" name="phonenumber" id="phonenumber" class="phonenumber" maxlength="10" minlength="10">
+              <label for="seatId" style="display: none">
+                seatId</label>
                 <input type="number" name="seatId" id="seatId" class="seatId" value="10">
-              </label>
-              <label>
-                Time
+              <label for="startTime">
+                Time</label>
                 <input type="time" name="startTime" id="startTime" class="startTime" value="00:00:00">
-                <button type="button" class="setTime">Click to get Current time</button>
-              </label>
-            </fieldset>
-            <fieldset class="account-action">
-              <input class="btn" type="submit" name="submit" value="Login">
-            </fieldset>
+                <!-- <button type="button" class="setTime">Click to get Current time</button> -->
+            <!-- </fieldset> -->
+            <!-- <fieldset class="account-action"> -->
+              <button class="btn formSubmit" type="button" name="submit">Click</button>
+            <!-- </fieldset> -->
           </form>
           
           <!-- <div class="prompt">
@@ -97,6 +93,11 @@
 			</div>
 
         </main>
+        <footer>
+          <div>
+            <a href="" target="_blank"><h3>Chat Here</h3></a>
+          </div>
+        </footer>
 		<script type="module" src="src/main.js"></script>
 		<script type="module" src="src/index.js" defer></script>
 		

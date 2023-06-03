@@ -3,12 +3,15 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as lilGui from 'lil-gui'
 import gsap from 'gsap'
+
 //Canvas
 const canvas = document.querySelector('canvas');
 const main = document.querySelector('.select');
 const select = document.querySelector('.button-17');
 const formContainer = document.querySelector('.form-container');
 const reset = document.querySelector('.reset');
+const formSubmit = document.querySelector('.formSubmit');
+const header = document.querySelector('header')
 let seatPosition = {
     x: 0,
     y: 0,
@@ -108,16 +111,24 @@ gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
     cameraRotation(-2.89, -0.91, -2.94);
     select.addEventListener('click', async() => {
 
+        
                 cameraMovement(1.49, 2.04, -7.55);
                 cameraRotation(-2.68, 1.05, 2.74);
                 main.style.display = "none"
                 // formContainer.style.display = "block"
                 reset.style.display = "block"
                 setInterval(()=> {
-                    position = 1;
+                    position = 21
                 },1000)
     })
-
+    formSubmit.addEventListener('click', () => {
+                // cameraMovement(seatPosition.x, seatPosition.y, seatPosition.z);
+                // cameraRotation(0, 0, 0);
+                cameraMovement(-5.87, 1.13, -1.0);
+                cameraRotation(-1.36, -1.42, -1.36);
+                header.style.opacity = "0"
+                formContainer.style.display = "none"
+    })
 
     let clickcount = true
     reset.addEventListener('click', () => {
@@ -128,10 +139,11 @@ gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
         reset.style.display = "none"
         formContainer.style.display = "none"
     })
+    
     canvas.addEventListener('click', (e) => {
         if(clickcount) {
-        cameraMovement(1.49, 2.04, -7.55);
-        cameraRotation(-2.68, 1.05, 2.74);
+        // cameraMovement(1.49, 2.04, -7.55);
+        // cameraRotation(-2.68, 1.05, 2.74);
         pointer.x = (e.x / window.innerWidth) * 2 - 1;
         pointer.y = -(e.y / window.innerHeight) * 2 + 1;
         raycaster.setFromCamera(pointer, camera); 
@@ -158,31 +170,34 @@ gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
     })
     
     //GUI configurator
-const gui = new lilGui.GUI();
+// const gui = new lilGui.GUI();
 
-gui
-.add(model.position, 'x')
-.min(-10)
-.max(10)
-.step(0.001)
-.name('Model X-Axis')
+// gui
+// .add(model.position, 'x')
+// .min(-10)
+// .max(10)
+// .step(0.001)
+// .name('Model X-Axis')
 
-gui
-.add(model.position, 'y')
-.min(-10)
-.max(10)
-.step(0.001)
-.name('Model Y-Axis')
+// gui
+// .add(model.position, 'y')
+// .min(-10)
+// .max(10)
+// .step(0.001)
+// .name('Model Y-Axis')
 
-gui
-.add(model.position, 'z')
-.min(-10)
-.max(10)
-.step(0.001)
-.name('Model Y-Axis')
+// gui
+// .add(model.position, 'z')
+// .min(-10)
+// .max(10)
+// .step(0.001)
+// .name('Model Y-Axis')
 })
 
-
+// window.addEventListener('mouseup', () => {
+//     console.log(camera.position)
+//     console.log(camera.rotation)
+// })
 
 //raycaster and 2D Vector
 const pointer = new THREE.Vector2()
@@ -198,7 +213,7 @@ const raycaster = new THREE.Raycaster()
 //     }
 // }
 // window.addEventListener('click', (e) => {
-//     if(position==1)
+//     // if(position==1)
 //         onMouseMove(e);
 // })
 

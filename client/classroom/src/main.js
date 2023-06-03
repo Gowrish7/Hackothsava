@@ -9,6 +9,11 @@ const main = document.querySelector('.select');
 const select = document.querySelector('.button-17');
 const formContainer = document.querySelector('.form-container');
 const reset = document.querySelector('.reset');
+let seatPosition = {
+    x: 0,
+    y: 0,
+    z: 0
+}
 //Scene
 const scene = new THREE.Scene();
 //Light
@@ -136,10 +141,16 @@ gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
             console.log("Click", position);
             const str = intersects[i].object.material.name
             if(str.includes('Material')) {
-                console.log(intersects[i].object.material.name)
+                console.log(intersects[i].object.position)
                 intersects[i].object.material.color.set(0x000000)
+                seatPosition.x = intersects[i].object.position.x
+                seatPosition.y = intersects[i].object.position.y
+                seatPosition.z = intersects[i].object.position.z
                 formContainer.style.display = "block"
                 clickcount = false
+
+                
+
                 break;
             }
         }

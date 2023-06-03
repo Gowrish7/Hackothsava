@@ -23,11 +23,17 @@ form > div {
     display: grid;
     grid-template-columns: auto auto;
 }
-
+/* form {
+    display: none;
+} */
 .form-container {
     display: none;
     max-width: 35%;
     margin-inline: auto;
+}
+
+.reset {
+    display: none;
 }
 
 
@@ -131,4 +137,3 @@ input {
   }
 
 
- 

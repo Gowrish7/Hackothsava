@@ -8,6 +8,7 @@ const canvas = document.querySelector('canvas');
 const main = document.querySelector('.select');
 const select = document.querySelector('.button-17');
 const formContainer = document.querySelector('.form-container');
+const reset = document.querySelector('.reset');
 //Scene
 const scene = new THREE.Scene();
 //Light
@@ -85,9 +86,9 @@ function cameraMovement(x, y, z) {
 function cameraRotation(x, y, z) {
     gsap.to(camera.rotation, {x: x, y: y, z: z, duration: 3})
 }
-function lookAtPosition(x, y, z) {
-    camera.lookAt( x, y, z );
-}
+// function lookAtPosition(x, y, z) {
+//     camera.lookAt( x, y, z );
+// }
 
 
 //gltf loader
@@ -106,13 +107,45 @@ gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
                 cameraRotation(-2.68, 1.05, 2.74);
                 main.style.display = "none"
                 // formContainer.style.display = "block"
+                reset.style.display = "block"
                 setInterval(()=> {
                     position = 1;
                 },1000)
     })
 
 
-
+    let clickcount = true
+    reset.addEventListener('click', () => {
+        clickcount = true
+        cameraMovement(-10.29, 1.966, -7.66);
+        cameraRotation(-2.89, -0.91, -2.94);
+        main.style.display = "block"
+        reset.style.display = "none"
+        formContainer.style.display = "none"
+    })
+    canvas.addEventListener('click', (e) => {
+        if(clickcount) {
+        cameraMovement(1.49, 2.04, -7.55);
+        cameraRotation(-2.68, 1.05, 2.74);
+        pointer.x = (e.x / window.innerWidth) * 2 - 1;
+        pointer.y = -(e.y / window.innerHeight) * 2 + 1;
+        raycaster.setFromCamera(pointer, camera); 
+        const intersects=raycaster.intersectObjects (scene.children);
+        console.log("Click here");
+        for (let i = 0; i < intersects.length; i++) { 
+            console.log("Click", position);
+            const str = intersects[i].object.material.name
+            if(str.includes('Material')) {
+                console.log(intersects[i].object.material.name)
+                intersects[i].object.material.color.set(0x000000)
+                formContainer.style.display = "block"
+                clickcount = false
+                break;
+            }
+        }
+    }
+    })
+    
     //GUI configurator
 const gui = new lilGui.GUI();
 
@@ -143,16 +176,16 @@ gui
 //raycaster and 2D Vector
 const pointer = new THREE.Vector2()
 const raycaster = new THREE.Raycaster()
-const onMouseMove = (event) => {
-    pointer.x = (event.x / window.innerWidth) * 2 - 1;
-    pointer.y = (event.y / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(pointer, camera); 
-    const intersects=raycaster.intersectObjects (scene.children);
-    for (let i = 0; i < intersects.length; i++) { 
-        console.log(intersects);
-        intersects[i].object.material.color.set(0x000000)
-    }
-}
+// const onMouseMove = (event) => {
+//     pointer.x = (event.x / window.innerWidth) * 2 - 1;
+//     pointer.y = (event.y / window.innerHeight) * 2 + 1;
+//     raycaster.setFromCamera(pointer, camera); 
+//     const intersects=raycaster.intersectObjects (scene.children);
+//     for (let i = 0; i < intersects.length; i++) { 
+//         console.log(intersects);
+//         intersects[i].object.material.color.set(0x000000)
+//     }
+// }
 // window.addEventListener('click', (e) => {
 //     if(position==1)
 //         onMouseMove(e);
@@ -163,36 +196,6 @@ const onMouseMove = (event) => {
 
 
 
-window.addEventListener('click', (e) => {
-    if(position != 1) {
-        // position = 1
-        return
-        
-    };
-    cameraMovement(1.49, 2.04, -7.55);
-    cameraRotation(-2.68, 1.05, 2.74);
-    pointer.x = (e.x / window.innerWidth) * 2 - 1;
-    pointer.y = -(e.y / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(pointer, camera); 
-    const intersects=raycaster.intersectObjects (scene.children);
-    console.log("Click here");
-    // console.log(scene.children)
-    for (let i = 0; i < intersects.length; i++) { 
-        console.log("Click");
-        // console.log(intersects[i].object.material.name);
-        const str = intersects[i].object.material.name
-        if(str.includes('StingrayPBS5')) {
-            // const id = intersects.object.id
-            // console.log(scene.children)
-            intersects[i].object.material.color.set(0x000000)
-            // intersects[i].object.material.name
-            // formContainer.style.display = "block"
-            // break;
-        }
-    }
-})
-
-
 
 
 
@@ -200,7 +203,7 @@ window.addEventListener('click', (e) => {
 
 
 const animate = () => {
-    controls.saveState();
+    // controls.saveState();
     renderer.render(scene, camera);
     // controls.update();
 }

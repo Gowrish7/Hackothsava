@@ -1,12 +1,17 @@
 const express=require("express");
-const cors=require("cors");
 const dotenv=require("dotenv");
 const database = require('./db')
 
 const { ref, child, get, set  } = require("firebase/database");
 const webapp=express();
 webapp.use(express.json());
-webapp.use(cors());
+const cors=require("cors");
+const corsOptions={
+origin:'*',
+vredentials:true,
+optionSuccessStatus:200
+}
+webapp.use(cors(corsOptions));
 dotenv.config();
 webapp.get('/', async(req, res) => {
     res.send({

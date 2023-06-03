@@ -36,6 +36,16 @@ form > div {
     display: none;
 }
 
+.refresh-1{
+background-color: rgba(177, 177, 177, 0.218);
+  display: block;
+  padding: 15px;
+  width: 8rem;
+  border:none;
+border-radius: 5px;
+color: black;
+font-weight: 700;
+}
 
 
 form {
@@ -104,9 +114,9 @@ input {
   .otp-field {
     display: flex;
     padding: 1px;
-    
+
   }
-  
+
   .otp-field input {
     width: 24px;
     font-size: 32px;
@@ -122,23 +132,23 @@ input {
     transition: all 0.1s;
     padding: 0 2.5px;
   }
-  
+
   .otp-field input:focus {
     border: 2px solid #a527ff;
     box-shadow: 0 0 2px 2px #a527ff6a;
   }
-  
+
   .disabled {
     opacity: 0.5;
   }
-  
+
   .space {
     margin-right: 1rem !important;
   }
 
 
 
-  footer{ 
+  footer{
     position: absolute;
     z-index: 999;
     max-width: fit-content;
@@ -148,7 +158,63 @@ input {
     background-color: white;
     border-radius: 15px;
   }
-  footer h3{ 
+  footer h3{
     text-align: center;
     max-width: fit-content;
   }
+
+.doubt-session{
+text-decoration: none;
+color: black;
+}
+
+/* #form-1{
+display: grid;
+margin-top:35%;
+background-color: rgb(183, 183, 183);
+
+} */
+
+
+
+/* Styles for the form */
+#form-1 {
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* Styles for the labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Styles for the input fields */
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Style for the submit button */
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+/* Hide the seatId label */
+label[for="seatId"] {
+  display: none;
+}

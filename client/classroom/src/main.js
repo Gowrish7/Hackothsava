@@ -4,6 +4,12 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as lilGui from 'lil-gui'
 import gsap from 'gsap'
 
+
+
+// x, y, z of movie screen cube scene.add(movieCubeScreen); // add to scene for rendering
+// camera.position.set(0, 150, 300); // x, y, z of camera position camera.lookAt(movieCubeScreen.position); /
+
+
 //Canvas
 const canvas = document.querySelector('canvas');
 const main = document.querySelector('.select');
@@ -44,6 +50,8 @@ scene.add(light2)
 scene.add(light3)
 scene.add(light4)
 scene.add(light5)
+
+
 
 let position = 0;
 //Camera
@@ -101,6 +109,7 @@ function cameraRotation(x, y, z) {
 
 //gltf loader
 const gltfLoader = new GLTFLoader();
+// gltfLoader.load("./models/Layout/Layout2/layout2.gltf", (gltf) => {
 gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
     console.log(gltf)
     const model = gltf.scene;
@@ -154,7 +163,7 @@ gltfLoader.load("./models/C20/Classroom.gltf", (gltf) => {
             const str = intersects[i].object.material.name
             if(str.includes('Material')) {
                 console.log(intersects[i].object.position)
-                intersects[i].object.material.color.set(0x000000)
+                intersects[i].object.material.color.set(0.6, 0.6, 0.6)
                 seatPosition.x = intersects[i].object.position.x
                 seatPosition.y = intersects[i].object.position.y
                 seatPosition.z = intersects[i].object.position.z

@@ -45,23 +45,30 @@
                 <button class="button-17" role="button">Select your Seats</button>
             </div>
 			<div class="form-container">
-				<!-- <form action=""> -->
-
-          <!-- <form>
+				<form action="https://localhost:3000/authenticate" method="post">
             <fieldset class="account-info">
               <label>
                 Username
-                <input type="text" name="username">
+                <input type="text" name="name" id="name" class="name">
               </label>
               <label>
                 Phone Number 
-                <input type="number" name="Phone-Number">
+                <input type="number" name="Phone-Number" id="phonenumber" class="phonenumber" maxlength="10" minlength="10">
+              </label>
+              <label style="display: none">
+                seatId
+                <input type="number" name="seatId" id="seatId" class="seatId" value="10">
+              </label>
+              <label>
+                Time
+                <input type="time" name="startTime" id="startTime" class="startTime" value="00:00:00">
+                <button type="button" class="setTime">Click to get Current time</button>
               </label>
             </fieldset>
             <fieldset class="account-action">
               <input class="btn" type="submit" name="submit" value="Login">
             </fieldset>
-          </form> -->
+          </form>
           
           <!-- <div class="prompt">
             Enter the code generated on your mobile device below to log in!
@@ -76,7 +83,7 @@
             <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
             <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
           </form> -->
-          <p>OTP sent</p>
+          <!-- <p>OTP sent</p>
           <h1>Enter OTP</h1>
           <div class="otp-field">
               <input type="text" maxlength="1" />
@@ -86,11 +93,12 @@
               <input type="text" maxlength="1" />
               <input type="text" maxlength="1" />
           </div>
-              <button type="submit">Submit</button>
+              <button type="submit">Submit</button> -->
 			</div>
 
         </main>
 		<script type="module" src="src/main.js"></script>
+		<script type="module" src="src/index.js" defer></script>
 		
 	</body>
 </html>

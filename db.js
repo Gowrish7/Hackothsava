@@ -4,7 +4,7 @@ require('dotenv').config()
 console.log(process.env)
 const { initializeApp } = require("firebase/app");
 const firebaseConfig = {
-  databaseURL: process.env.DATABASEURL,
+  databaseURL: "https://htmlbackend-ad937-default-rtdb.firebaseio.com",
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

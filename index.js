@@ -19,9 +19,9 @@ webapp.get('/', async(req, res) => {
         message: "Successful"
     })
 })
-const accountsid = process.env.TWILIO_ACCOUNT_SID
-const authToken = process.env.TWILIO_AUTH_TOKEN
-const verifySid = process.env.VERIFYSID
+const accountsid = "ACb8802d784f0812ccb8a0c78f4b82e930"
+const authToken = "13a1fcacac94fde1ae18c62fe2a48b5d"
+const verifySid = "VA344034e4377f25a63c37c646e5330ea3"
 const client = require("twilio")(accountsid, authToken);
 webapp.post("/verifyotp", async(req, res) => {
 

@@ -2,7 +2,7 @@ const express=require("express");
 const cors=require("cors");
 const dotenv=require("dotenv");
 const database = require('./db')
-
+const bodyParser = require('body-parser')
 const { ref, child, get, set  } = require("firebase/database");
 // const otpg=require("./genrateotp.js");
 // const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -10,6 +10,9 @@ const { ref, child, get, set  } = require("firebase/database");
 // const client = require('twilio')(accountSid, authToken);
 // const transporter = require("transporter");
 const webapp=express();
+webapp.use(bodyParser.urlencoded({
+    extended: true
+  }));
 webapp.use(express.json());
 webapp.use(cors());
 dotenv.config();
@@ -109,6 +112,7 @@ webapp.post("/authenticate",async(req,res)=>{
     const phno=req.body.phonenumber;
     const name=req.body.name;
     const startTime=req.body.startTime;
+    console.log(name, phno, seatId, startTime)
     //const docRef = db.collection('people').doc('associates');
     // const userRef = db.doc("associates");
     // await setDoc(userRef, {
@@ -126,17 +130,16 @@ webapp.post("/authenticate",async(req,res)=>{
 //   name: name,
 //   phno: phno,
 // });
+try{
     client.verify.v2
     .services(verifySid)
     .verifications.create({ to: phno, channel: "sms" })
     .then(message => {
-        try{const sid = message.sid
-        console.log(sid);
+        try{
         set(ref(database, 'users/'+phno), {
             name: name,
             phno: phno,
             seatId: seatId,
-            sid: sid,
             startTime: startTime
           })
           .then(() => {
@@ -149,6 +152,10 @@ webapp.post("/authenticate",async(req,res)=>{
     }
 
     })
+}
+catch(err) {
+    res.status(300).send({success: false, message: err.message})
+}
 
 
     // readline.question("Please enter the OTP:", (otpCode) => {
@@ -168,7 +175,7 @@ webapp.post("/authenticate",async(req,res)=>{
 
 })
 webapp.listen(3100,()=>{
-    console.log("running successfully")
+    console.log("running successfully at 3100")
 })
 
 

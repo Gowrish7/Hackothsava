@@ -1,7 +1,8 @@
 // const login = document.querySelector('.login')
-const setStartTime = document.querySelector('.setTime');
-const startTimeInput = document.querySelector('.startTime');
-// login.addEventListener('click', async(e) => {
+// const setStartTime = document.querySelector('.setTime');
+// const startTimeInput = document.querySelector('.startTime');
+// const formSubmit = document.querySelector(".formSubmit")
+// formSubmit.addEventListener('click', async(e) => {
 //     e.preventDefault();
 //     var today = new Date();
 //     var startTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -18,14 +19,14 @@ const startTimeInput = document.querySelector('.startTime');
 //             startTime: startTime
 //         }
 //         console.log(data)
-//         const response = await fetch("https://wonderclass-serve.cyclic.app/authenticate", {
+//         const response = await fetch("http://localhost:3100/authenticate", {
 //           method: "POST", 
 //           mode: "cors", 
 //           cache: "no-cache", 
 //           credentials: "same-origin", 
 //           headers: {
-//             "Content-Type": "application/json",
-//             // 'Content-Type': 'application/x-www-form-urlencoded',
+//             // "Content-Type": "application/json",
+//             'Content-Type': 'application/x-www-form-urlencoded',
 //           },
 //           redirect: "follow", 
 //           referrerPolicy: "no-referrer", 
@@ -33,14 +34,14 @@ const startTimeInput = document.querySelector('.startTime');
 //         });
 //         console.log(response)
 //     }
-//     // const name = e.target.name
+    // const name = e.target.name
 // })
-setStartTime.addEventListener('click', () => {
-    var today = new Date();
-    var Hours = String(today.getHours()).padStart(2, '0');
-    var Minutes = String(today.getMinutes()).padStart(2, '0');
-    var startTime = Hours + ":" + Minutes;
-    startTimeInput.value = startTime
-    let seatId = document.querySelector('.seatId').value
-    console.log(seatId)
-})
+// setStartTime.addEventListener('click', () => {
+//     var today = new Date();
+//     var Hours = String(today.getHours()).padStart(2, '0');
+//     var Minutes = String(today.getMinutes()).padStart(2, '0');
+//     var startTime = Hours + ":" + Minutes;
+//     startTimeInput.value = startTime
+//     let seatId = document.querySelector('.seatId').value
+//     console.log(seatId)
+// })

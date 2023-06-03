@@ -5,7 +5,9 @@
 		<title>My first three.js app</title>
 		<link rel="stylesheet" href="src/style.css">
 		<link rel="stylesheet" href="src/style2.css">
+    <!-- <link rel="stylesheet" href="src/top.css"> -->
 	</head>
+
 	<body>
 		<canvas class="canvas"></canvas>
 		<header>
@@ -16,7 +18,7 @@
                     <h1><a href="#" class="nav-text">Wonder Class</a></h1>
                   </div>
                   
-        
+
               </div>
               <div><button class="reset">Back</button></div>
               <nav>
@@ -43,17 +45,50 @@
                 <button class="button-17" role="button">Select your Seats</button>
             </div>
 			<div class="form-container">
-				<form action="">
-					<div>
-						<label for="name">Name</label>
-						<input id="name" class="name" type="text">
-					</div>
-					<div>
-						<label for="phonenumber">Phone Number</label>
-						<input id="phonenumber" class="phonenumber" type="number">
-					</div>
-				</form>
+				<!-- <form action=""> -->
+
+          <!-- <form>
+            <fieldset class="account-info">
+              <label>
+                Username
+                <input type="text" name="username">
+              </label>
+              <label>
+                Phone Number 
+                <input type="number" name="Phone-Number">
+              </label>
+            </fieldset>
+            <fieldset class="account-action">
+              <input class="btn" type="submit" name="submit" value="Login">
+            </fieldset>
+          </form> -->
+          
+          <!-- <div class="prompt">
+            Enter the code generated on your mobile device below to log in!
+          </div>
+          
+          <form method="get" class="digit-group" data-group-name="digits" data-autosubmit="false" autocomplete="off">
+            <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
+            <input type="text" id="digit-2" name="digit-2" data-next="digit-3" data-previous="digit-1" />
+            <input type="text" id="digit-3" name="digit-3" data-next="digit-4" data-previous="digit-2" />
+            <span class="splitter">&ndash;</span>
+            <input type="text" id="digit-4" name="digit-4" data-next="digit-5" data-previous="digit-3" />
+            <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
+            <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
+          </form> -->
+          <p>OTP sent</p>
+          <h1>Enter OTP</h1>
+          <div class="otp-field">
+              <input type="text" maxlength="1" />
+              <input type="text" maxlength="1" />
+              <input class="space" type="text" maxlength="1" />
+              <input type="text" maxlength="1" />
+              <input type="text" maxlength="1" />
+              <input type="text" maxlength="1" />
+          </div>
+              <button type="submit">Submit</button>
 			</div>
+
         </main>
 		<script type="module" src="src/main.js"></script>
 		
